@@ -1,0 +1,47 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Web-service</title>
+</head>
+<body>
+  
+
+    <div>
+        <h1>Хранилище писем</h1>
+        <style>
+            p,td {
+                width: 200px;
+                word-wrap: break-word;
+                text-align:center;
+            }
+        </style>
+        <table border="1" style="max-width:200px">
+            <tr>
+                <td><p><h2>Тема письма:</h2></p></td>
+                <td><p><h2>Кому:</h2></p></td>
+                <td><p><h2>От:</h2></p></td>
+                <td><p><h2>Текст письма:</h2></p></td>
+                <td><p><h2>Время:</h2></p></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.Letters)
+            {
+                <tr>
+                    <td><p>@b.Title</p></td>
+                    <td><p>@b.Target</p></td>
+                    <td><p>@b.Sender</p></td>
+                    <td><p>@b.Content</p></td>
+                    <td><p>@b.Date</p></td>
+                    <td><p><a href="/Home/deleteLetter/@b.Id">Удалить </a></p></td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
